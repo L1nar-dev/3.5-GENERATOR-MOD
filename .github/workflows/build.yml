@@ -18,14 +18,15 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
         with:
           gradle-version: '8.8'
-          cache-disabled: true # Сносим битый кэш GitHub, собираем «на чистую»
+          cache-disabled: true
 
-      - name: Make Gradle Wrapper Executable
-        run: chmod +x gradlew
+      - name: Fix Line Endings and Permissions
+        run: |
+          sed -i 's/\r$//' gradlew
+          chmod +x gradlew
 
       - name: Clean and Rebuild Environment
         run: |
           ./gradlew clean
           ./gradlew genSources --stacktrace
           ./gradlew build
-
