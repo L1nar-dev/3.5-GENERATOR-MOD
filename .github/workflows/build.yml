@@ -17,6 +17,9 @@ jobs:
         with:
           gradle-version: '8.8'
           
-      - name: Build with Gradle
-        run: gradle build
+      - name: Fix Line Endings and Build with Gradle
+        run: |
+          sed -i 's/\r$//' gradlew
+          chmod +x gradlew
+          ./gradlew build
 
