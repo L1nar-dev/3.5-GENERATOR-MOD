@@ -42,10 +42,10 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     // Исправленный Cold Sweat под мавен Модранта
-    modCompileOnly "maven.modrinth:cold-sweat:${project.cold_sweat_version}"
+    //modCompileOnly "maven.modrinth:cold-sweat:${project.cold_sweat_version}"
 
     // LuckPerms
-    modCompileOnly "net.luckperms:api:${project.luckperms_version}"
+    //modCompileOnly "net.luckperms:api:${project.luckperms_version}"
 }
 
 processResources {
