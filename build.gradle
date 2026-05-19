@@ -15,7 +15,7 @@ repositories {
     maven { url 'https://maven.blamejared.com' }
     maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     
-    // Репозиторий Modrinth для Cold Sweat
+    // Репозиторий Modrinth (только для группы maven.modrinth)
     maven {
         url 'https://api.modrinth.com/maven'
         content {
@@ -23,7 +23,13 @@ repositories {
         }
     }
     
-    maven { url 'https://repo.luckperms.net/maven' }
+    // Репозиторий LuckPerms (СТРОГО только для самого LuckPerms)
+    maven { 
+        url 'https://repo.luckperms.net/maven' 
+        content {
+            includeGroup "net.luckperms"
+        }
+    }
 }
 
 dependencies {
