@@ -15,7 +15,7 @@ repositories {
     maven { url 'https://maven.blamejared.com' }
     maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     
-    // Репозиторий Modrinth (только для группы maven.modrinth)
+    // Репозиторий Modrinth
     maven {
         url 'https://api.modrinth.com/maven'
         content {
@@ -23,7 +23,7 @@ repositories {
         }
     }
     
-    // Репозиторий LuckPerms (СТРОГО только для самого LuckPerms)
+    // Репозиторий LuckPerms (изолированный)
     maven { 
         url 'https://repo.luckperms.net/maven' 
         content {
@@ -35,15 +35,15 @@ repositories {
 dependencies {
     minecraft "com.mojang:minecraft:1.21.1"
     mappings loom.officialMojangMappings()
-    modImplementation "net.fabricmc.fabric-loader:0.15.11"
+    modImplementation "net.fabricmc.fabric-loader:0.16.10"
     modImplementation "net.fabricmc.fabric-api:fabric-api:0.102.0+1.21"
 
-    // Cold Sweat - optional dependency
+    // Cold Sweat
     modCompileOnly("maven.modrinth:cold-sweat:2.2.2-1.21.1") {
         transitive = false
     }
 
-    // LuckPerms - optional dependency
+    // LuckPerms
     modCompileOnly "net.luckperms:api:5.4"
 }
 
