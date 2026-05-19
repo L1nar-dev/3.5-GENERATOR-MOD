@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.9-SNAPSHOT' // Обновили плагин до стабильного 1.9
+    id 'fabric-loom' version '1.8-SNAPSHOT' // Идеально для Gradle 8.8
     id 'maven-publish'
 }
 
@@ -29,7 +29,7 @@ repositories {
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings loom.officialMojangMappings() // Оставляем Mojmap, они работают шикарно
+    mappings loom.officialMojangMappings() // Официальные маппинги Mojang
     
     modImplementation "net.fabricmc.fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
