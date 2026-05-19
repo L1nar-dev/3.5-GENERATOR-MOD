@@ -28,15 +28,13 @@ repositories {
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings loom.officialMojangMappings()
+    mappings loom.officialMojangMappings() // Официальные маппинги работают отлично
     
-    // Идеальный синтаксис: отключаем транзитивные зависимости для лоадера,
-    // чтобы Loom не пытался сам достраивать классификаторы и суффиксы.
-    modImplementation("net.fabricmc:fabric-loader:${project.loader_version}") {
-        transitive = false
-    }
-    
+    // Возвращаем стандартное объявление без удушающего transitive = false
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    // LuckPerms
     modCompileOnly "net.luckperms:api:${project.luckperms_version}"
 }
 
