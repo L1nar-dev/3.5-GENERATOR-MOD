@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "frostpunk_generator",
+  "version": "${version}",
+  "name": "Frostpunk Generator",
+  "description": "Generator control system inspired by Frostpunk. Manage power levels, coal supply, heat zones and survive the cold.",
+  "authors": ["L1nar"],
+  "contact": {
+    "homepage": "https://t.me/ArchiRed312"
+  },
+  "license": "MIT",
+  "icon": "assets/frostpunk_generator/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.frostpunk.FrostpunkMod"],
+    "client": ["com.frostpunk.FrostpunkModClient"]
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.16.5",
+    "fabric-api": "*",
+    "minecraft": "~1.21.1"
+  },
+  "suggests": {
+    "cold-sweat": "*",
+    "luckperms": "*"
+  }
+}
