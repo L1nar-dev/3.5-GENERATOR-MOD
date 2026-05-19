@@ -3,11 +3,11 @@ plugins {
     id 'maven-publish'
 }
 
-version = project.mod_version
-group = project.maven_group
+version = "1.0.0"
+group = "com.linar.generator"
 
 base {
-    archivesName = project.archives_base_name
+    archivesName = "frostpunk-generator"
 }
 
 repositories {
@@ -18,13 +18,7 @@ repositories {
     maven { url 'https://maven.blamejared.com' }
     maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     
-    // Чистый репозиторий Modrinth без удушающих фильтров
-    maven {
-        name = "Modrinth"
-        url = "https://api.modrinth.com/maven"
-    }
-    
-    // Репозиторий LuckPerms (оставляем изолированным)
+    // Репозиторий LuckPerms (изолированный)
     maven { 
         url 'https://repo.luckperms.net/maven' 
         content {
@@ -34,18 +28,15 @@ repositories {
 }
 
 dependencies {
-    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    minecraft "com.mojang:minecraft:1.21.1"
     mappings loom.officialMojangMappings()
     
-    // Наш рабочий хак для лоадера
-    implementation "net.fabricmc.fabric-loader:${project.loader_version}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
-    // Исправленный Cold Sweat под мавен Модранта
-    //modCompileOnly "maven.modrinth:cold-sweat:${project.cold_sweat_version}"
+    // Возвращаем родной modImplementation, но БЕЗ переменных. Только чистый текст!
+    modImplementation "net.fabricmc.fabric-loader:0.16.10"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:0.102.0+1.21"
 
     // LuckPerms
-    //modCompileOnly "net.luckperms:api:${project.luckperms_version}"
+    modCompileOnly "net.luckperms:api:5.4"
 }
 
 processResources {
