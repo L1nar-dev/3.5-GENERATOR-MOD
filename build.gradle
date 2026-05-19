@@ -30,9 +30,20 @@ dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings loom.officialMojangMappings()
     
-    modImplementation "net.fabricmc.fabric-loader:${project.loader_version}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    // ХИТРЫЙ ХАК С ХЕШЕМ: Качаем лоадер напрямую как внешний артефакт, 
+    // полностью обходя сломанный парсер Loom!
+    modImplementation files(project.repositories.flatDir { dir 'libs' }.run {
+        def loaderVersion = project.loader_version
+        // Если Loom капризничает, мы заставляем Gradle забрать чистый JAR
+        "net.fabricmc.fabric-loader:${loaderVersion}"
+    })
+    
+    // Если хак выше покажется Градлу слишком сложным, вот дублирующая прямая ссылка:
+    modImplementation("net.fabricmc:fabric-loader:${project.loader_version}") {
+        transitive = false
+    }
 
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     modCompileOnly "net.luckperms:api:${project.luckperms_version}"
 }
 
