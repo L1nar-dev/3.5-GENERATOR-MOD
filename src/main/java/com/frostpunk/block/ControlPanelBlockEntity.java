@@ -26,7 +26,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class ControlPanelBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory<GeneratorScreenHandler.SyncData> {
+public class ControlPanelBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory {
 
     // Power levels 1-4
     private int powerLevel = 1;
