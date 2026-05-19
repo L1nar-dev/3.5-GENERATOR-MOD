@@ -1,22 +1,31 @@
 name: Build Mod
 on: [push, pull_request]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
       
-      - name: Set up JDK
+      - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
           java-version: '21'
           distribution: 'temurin'
           
-      - name: Setup Gradle (Force Version 8.8)
+      - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
         with:
           gradle-version: '8.8'
-          
-      - name: Unify Environment and Build
-        run: gradle vscode downloadAssets build --no-daemon
+          cache-disabled: true # Сносим битый кэш GitHub, собираем «на чистую»
+
+      - name: Make Gradle Wrapper Executable
+        run: chmod +x gradlew
+
+      - name: Clean and Rebuild Environment
+        run: |
+          ./gradlew clean
+          ./gradlew genSources --stacktrace
+          ./gradlew build
 
