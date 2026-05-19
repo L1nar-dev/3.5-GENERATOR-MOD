@@ -1,30 +1,29 @@
 {
   "schemaVersion": 1,
-  "id": "frostpunk_generator",
+  "id": "frostpunk-generator",
   "version": "${version}",
-  "name": "Frostpunk Generator",
-  "description": "Generator control system inspired by Frostpunk. Manage power levels, coal supply, heat zones and survive the cold.",
-  "authors": ["L1nar"],
+  "name": "3.5 Generator Mod",
+  "description": "Custom Generator mechanics for DMS STAR Season 3.5 alternative timeline.",
+  "authors": [
+    "Linar"
+  ],
   "contact": {
-    "homepage": "https://t.me/ArchiRed312"
+    "homepage": "https://github.com/"
   },
   "license": "MIT",
-  "icon": "assets/frostpunk_generator/icon.png",
+  "icon": "assets/frostpunk-generator/icon.png",
   "environment": "*",
   "entrypoints": {
-    "main": ["com.frostpunk.FrostpunkMod"],
-    "client": ["com.frostpunk.FrostpunkModClient"]
+    "main": [
+      "com.frostpunk.FrostpunkMod"
+    ]
   },
-  "mixins": [],
-    "depends": {
+  "mixins": [
+    "frostpunk-generator.mixins.json"
+  ],
+  "depends": {
     "fabricloader": ">=0.15.0",
-    "fabric-api": "*",
-    "minecraft": "~1.21.1"
-  },
-
-  },
-  "suggests": {
-    "cold-sweat": "*",
-    "luckperms": "*"
+    "minecraft": "~1.21.1",
+    "fabric-api": "*"
   }
 }
