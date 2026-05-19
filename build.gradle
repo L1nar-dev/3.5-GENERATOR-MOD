@@ -3,11 +3,11 @@ plugins {
     id 'maven-publish'
 }
 
-version = project.mod_version
-group = project.maven_group
+version = "1.0.0"
+group = "com.linar.generator"
 
 base {
-    archivesName = project.archives_base_name
+    archivesName = "frostpunk-generator"
 }
 
 repositories {
@@ -33,18 +33,18 @@ repositories {
 }
 
 dependencies {
-    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    minecraft "com.mojang:minecraft:1.21.1"
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc.fabric-loader:0.15.11"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:0.102.0+1.21"
 
     // Cold Sweat - optional dependency
-    modCompileOnly("maven.modrinth:cold-sweat:${project.cold_sweat_version}") {
+    modCompileOnly("maven.modrinth:cold-sweat:2.2.2-1.21.1") {
         transitive = false
     }
 
     // LuckPerms - optional dependency
-    modCompileOnly "net.luckperms:api:${project.luckperms_version}"
+    modCompileOnly "net.luckperms:api:5.4"
 }
 
 processResources {
