@@ -11,10 +11,15 @@ base {
 }
 
 repositories {
-    maven { url 'https://maven.fabricmc.net/' }
+    // Добавляем официальный репозиторий Фабрики в самом верху, явно прописав его имя
+    maven {
+        name = "Fabric"
+        url = "https://maven.fabricmc.net/"
+    }
     maven { url 'https://maven.blamejared.com' }
     maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     
+    // Репозиторий Modrinth (только для группы maven.modrinth)
     maven {
         url 'https://api.modrinth.com/maven'
         content {
@@ -22,6 +27,7 @@ repositories {
         }
     }
     
+    // Репозиторий LuckPerms (СТРОГО только для самого LuckPerms)
     maven { 
         url 'https://repo.luckperms.net/maven' 
         content {
@@ -32,14 +38,21 @@ repositories {
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings loom.officialMojangMappings() // Оставляем Mojmap, они работают!
-    modImplementation "net.fabricmc.fabric-loader:${project.loader_version}"
+    mappings loom.officialMojangMappings()
+    
+    // ХИТРЫЙ ХАК: используем обычный implementation вместо modImplementation, 
+    // чтобы обойти баг Loom с двоеточием и точкой на конце
+    implementation "net.fabricmc.fabric-loader:${project.loader_version}"
+    
+    // Для API оставляем как есть
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
+    // Cold Sweat - optional dependency
     modCompileOnly("maven.modrinth:cold-sweat:${project.cold_sweat_version}") {
         transitive = false
     }
 
+    // LuckPerms - optional dependency
     modCompileOnly "net.luckperms:api:${project.luckperms_version}"
 }
 
