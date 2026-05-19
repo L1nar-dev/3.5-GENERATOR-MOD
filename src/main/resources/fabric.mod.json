@@ -16,10 +16,12 @@
     "client": ["com.frostpunk.FrostpunkModClient"]
   },
   "mixins": [],
-  "depends": {
-    "fabricloader": ">=0.16.5",
+    "depends": {
+    "fabricloader": ">=0.15.0",
     "fabric-api": "*",
     "minecraft": "~1.21.1"
+  },
+
   },
   "suggests": {
     "cold-sweat": "*",
