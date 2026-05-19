@@ -17,8 +17,6 @@ jobs:
         with:
           gradle-version: '8.8'
           
-      - name: Pre-download Minecraft and Build
-        run: |
-          gradle vscode --no-daemon
-          gradle downloadAssets --no-daemon
-          gradle build --no-daemon
+      - name: Unify Environment and Build
+        run: gradle vscode downloadAssets build --no-daemon
+
