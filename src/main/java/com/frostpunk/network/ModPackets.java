@@ -1,11 +1,6 @@
 package com.frostpunk.network;
 
 import com.frostpunk.FrostpunkMod;
-import com.frostpunk.block.ControlP
-cat > src/main/java/com/frostpunk/network/ModPackets.java << 'JAVAEOF'
-package com.frostpunk.network;
-
-import com.frostpunk.FrostpunkMod;
 import com.frostpunk.block.ControlPanelBlockEntity;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
@@ -77,7 +72,6 @@ public class ModPackets {
             context.server().execute(() -> {
                 BlockEntity be = player.getWorld().getBlockEntity(payload.pos());
                 if (be instanceof ControlPanelBlockEntity panel) {
-                    panel.setBoostActive(!panel.isBoostActive(), player);
                 }
             });
         });
