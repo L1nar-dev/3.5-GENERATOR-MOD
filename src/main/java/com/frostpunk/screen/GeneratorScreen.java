@@ -154,7 +154,7 @@ public class GeneratorScreen extends HandledScreen<GeneratorScreenHandler> {
 
         // Overload bar
         drawSectionLabel(context, "OVERDRIVE OVERLOAD", rx, y + 163);
-        drawOverloadBar(context, rx, y + 171, handler.getOverloadPercent());
+        drawOverloadBar(context, rx, y + 171);
 
         // Coal supply
         drawSectionLabel(context, "COAL SUPPLY", rx, y + 183);
@@ -178,7 +178,7 @@ public class GeneratorScreen extends HandledScreen<GeneratorScreenHandler> {
 
         // Radius section
         drawSectionLabel(context, "HEAT RADIUS", rx, y + 217);
-        drawRadiusPips(context, rx, y + 225, handler.getRadiusLevel());
+        drawRadiusPips(context, rx, y + 225);
 
         // Bottom info row
         context.fill(rx, y + GUI_HEIGHT - 22, rx + 118, y + GUI_HEIGHT - 2, 0xFF0F0C08);

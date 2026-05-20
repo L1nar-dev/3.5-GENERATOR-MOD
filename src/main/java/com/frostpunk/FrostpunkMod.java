@@ -24,18 +24,18 @@ public class FrostpunkMod implements ModInitializer {
     @Override
     public void onInitialize() {
         LOGGER.info("Frostpunk Generator initializing...");
-
         ModBlocks.register();
         ModBlockEntities.register();
         ModPackets.registerServer();
         GeneratorCommands.register();
-
         GENERATOR_SCREEN_HANDLER = Registry.register(
             Registries.SCREEN_HANDLER,
             Identifier.of(MOD_ID, "generator"),
-            new ExtendedScreenHandlerType<>(GeneratorScreenHandler::new, GeneratorScreenHandler.DATA_CODEC)
+            new ExtendedScreenHandlerType<>(
+                GeneratorScreenHandler::new,
+                GeneratorScreenHandler.SyncData.PACKET_CODEC
+            )
         );
-
         LOGGER.info("Frostpunk Generator ready. The city must survive.");
     }
 }

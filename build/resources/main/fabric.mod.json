@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "frostpunk-generator",
+  "version": "1.0.0",
+  "name": "3.5 Generator Mod",
+  "description": "Custom Generator mechanics for DMS STAR Season 3.5 alternative timeline.",
+  "authors": [
+    "Linar"
+  ],
+  "contact": {
+    "homepage": "https://github.com/"
+  },
+  "license": "MIT",
+  "icon": "assets/frostpunk-generator/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.frostpunk.FrostpunkModClient"
+    ],
+    "main": [
+      "com.frostpunk.FrostpunkMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": "~1.21.1",
+    "fabric-api": "*"
+  }
+}

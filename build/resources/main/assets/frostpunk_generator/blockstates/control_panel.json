@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "frostpunk_generator:block/control_panel"
+    }
+  }
+}

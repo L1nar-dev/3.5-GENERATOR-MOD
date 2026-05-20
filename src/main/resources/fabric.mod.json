@@ -14,13 +14,13 @@
   "icon": "assets/frostpunk-generator/icon.png",
   "environment": "*",
   "entrypoints": {
+    "client": [
+      "com.frostpunk.FrostpunkModClient"
+    ],
     "main": [
       "com.frostpunk.FrostpunkMod"
     ]
   },
-  "mixins": [
-    "frostpunk-generator.mixins.json"
-  ],
   "depends": {
     "fabricloader": ">=0.15.0",
     "minecraft": "~1.21.1",

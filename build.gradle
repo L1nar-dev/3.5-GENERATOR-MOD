@@ -11,6 +11,7 @@ base {
 }
 
 repositories {
+    maven { url "https://cursemaven.com" }
     maven {
         name = "Fabric"
         url = "https://maven.fabricmc.net/"
@@ -28,7 +29,7 @@ repositories {
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings loom.officialMojangMappings() // Официальные маппинги работают отлично
+    mappings "net.fabricmc:yarn:1.21.1+build.2:v2"
     
     // Возвращаем стандартное объявление без удушающего transitive = false
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
