@@ -2,7 +2,7 @@ package com.frostpunk.block;
 
 import com.frostpunk.FrostpunkMod;
 import com.frostpunk.screen.GeneratorScreenHandler;
-import com.frostpunk.util.ColdSweatUtil;
+import com.frostpunk.util.ThermooUtil;
 import com.frostpunk.util.GeneratorEventLog;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
@@ -80,7 +80,7 @@ public class ControlPanelBlockEntity extends BlockEntity implements ExtendedScre
         }
 
         if (be.tickCounter % 100 == 0) {
-            ColdSweatUtil.updateZoneTemperature(world, pos,
+            ThermooUtil.updateZoneTemperature(world, pos,
                 be.running && !be.broken ? be.radiusLevel : 0,
                 be.outsideTemp, be.powerLevel, be.boostActive);
         }
