@@ -382,4 +382,3 @@ public class ControlPanelBlockEntity extends BlockEntity implements ExtendedScre
     public GeneratorScreenHandler.SyncData getScreenOpeningData(ServerPlayerEntity player) {
         return new GeneratorScreenHandler.SyncData(pos);
     }
-}
