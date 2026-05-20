@@ -78,4 +78,16 @@ public class ModPackets {
     }
 
     public static void registerClient() {}
+
+    public static void sendSetPower(net.minecraft.util.math.BlockPos pos, int level) {
+        net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking.send(new SetPowerPacket(pos, level));
+    }
+
+    public static void sendSetRadius(net.minecraft.util.math.BlockPos pos, int level) {
+        net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking.send(new SetRadiusPacket(pos, level));
+    }
+
+    public static void sendToggleBoost(net.minecraft.util.math.BlockPos pos) {
+        net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking.send(new ToggleBoostPacket(pos));
+    }
 }

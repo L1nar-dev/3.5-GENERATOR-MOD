@@ -59,20 +59,20 @@ public class GeneratorScreen extends HandledScreen<GeneratorScreenHandler> {
                 default -> "";
             };
             this.addDrawableChild(ButtonWidget.builder(Text.literal(label), btn -> {
-                ModPackets.sendSetPower(level);
+                ModPackets.sendSetPower(handler.getBlockEntity().getPos(), level);
             }).dimensions(x + 140 + ((i - 1) % 2) * 52, y + 60 + ((i - 1) / 2) * 22, 50, 20).build());
         }
 
         // Boost button
         this.addDrawableChild(ButtonWidget.builder(Text.literal("⚡ OVERDRIVE"), btn -> {
-            ModPackets.sendToggleBoost();
+            ModPackets.sendToggleBoost(handler.getBlockEntity().getPos());
         }).dimensions(x + 140, y + 106, 104, 18).build());
 
         // Radius buttons
         for (int i = 1; i <= 4; i++) {
             final int level = i;
             this.addDrawableChild(ButtonWidget.builder(Text.literal("R" + i), btn -> {
-                ModPackets.sendSetRadius(level);
+                ModPackets.sendSetRadius(handler.getBlockEntity().getPos(), level);
             }).dimensions(x + 140 + (i - 1) * 26, y + 175, 24, 14).build());
         }
     }
