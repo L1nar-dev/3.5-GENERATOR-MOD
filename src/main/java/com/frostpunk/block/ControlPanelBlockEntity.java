@@ -325,9 +325,15 @@ public class ControlPanelBlockEntity extends BlockEntity implements ExtendedScre
         nbt.putBoolean("Running", running);
         nbt.putInt("OutsideTemp", outsideTemp);
         ItemStack coalStack = coalInventory.getStack(0);
+        if (!coalStack.isEmpty()) {
             NbtCompound coalNbt = new NbtCompound();
             coalNbt.put("Stack", coalStack.encode(registries));
             nbt.put("Coal", coalNbt);
+        }
+
+
+
+
         }
     }
 
