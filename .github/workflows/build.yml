@@ -30,3 +30,10 @@ jobs:
           ./gradlew clean
           ./gradlew genSources --stacktrace
           ./gradlew build
+
+      - name: Upload JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: frostpunk-generator-mod
+          path: build/libs/*.jar
+          if-no-files-found: error
